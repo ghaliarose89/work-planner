@@ -38,13 +38,13 @@ checkColor();
 
 $(document).on('click', '.saveBtn', function(event) {
         event.preventDefault();
-        var itemId = $(this).parent().attr("id");
-        var textinput = $("#"+itemId+"textarea").val();
+        var itemId = $(this).parent("div.row").attr("id");
+        var textinput = $("textarea#txt-" + itemId).val();
         console.log(textinput);
         //task.push(itemId);
-        task.push(textinput);
+        //task.push(textinput);
 
-        console.log (task);
+        //console.log (task);
         
      } );
             

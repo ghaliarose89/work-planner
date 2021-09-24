@@ -39,7 +39,8 @@ checkColor();
 $(document).on('click', '.saveBtn', function(event) {
         event.preventDefault();
         var itemId = $(this).parent("div.row").attr("id");
-        var textinput = $("textarea#txt-" + itemId).val();
+        console.log (itemId);
+        var textinput = $("#txt-" + itemId +"textarea").val();
         console.log(textinput);
         //task.push(itemId);
         //task.push(textinput);

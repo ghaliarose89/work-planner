@@ -1,12 +1,20 @@
 
-var task = [
-    {hours: "",
-    plann : ""
-},
+var task = [];
 
-];
 var timeEl = document.querySelector ("#currentDay");
 timeEl.textContent= moment().format("MM/D/ YYYY  H:MM a");
+
+var showPlan = function (){
+    var displayPlan= JSON.parse(localStorage.getItem ("plan")) || []
+    console.log(displayPlan);
+    for ( var i = 0; i <displayPlan.length; i ++) {
+        console.log (displayPlan[i]);
+        var hour = displayPlan[i].hours;
+        $("#txt-" + hour).val(displayPlan[i].userTask);
+        console.log (displayPlan[i].userTask); 
+    }
+};
+
 
 var checkColor = function () {
 var currentTime = parseInt(moment().format("H"));
@@ -25,28 +33,18 @@ var currentTime = parseInt(moment().format("H"));
  });
 };
 checkColor();
-
-// var saveItem = function(){
-//         var itemId = $(this).attr("id");
-//         debugger;
-//         task.push($("#"+itemId+"textarea").val());
-//         debugger;
-//         console.log (task);
-        
-// };
-    
+showPlan();
 
 $(document).on('click', '.saveBtn', function(event) {
         event.preventDefault();
         var itemId = $(this).parent("div.row").attr("id");
         console.log (itemId);
-        var textinput = $("#txt-" + itemId +"textarea").val();
+        var textinput = $("#txt-" + itemId).val();
         console.log(textinput);
-        //task.push(itemId);
-        //task.push(textinput);
-
-        //console.log (task);
-        
+       task = JSON.parse ( localStorage.getItem("plan")) || [];
+        task.push ( {hours:itemId ,  userTask : textinput});
+        console.log (task);
+        localStorage.setItem ("plan",JSON.stringify(task));
      } );
             
 
@@ -56,28 +54,6 @@ $(document).on('click', '.saveBtn', function(event) {
 
 
 
-
-// var list = JSON.parse(localStorage.getItem('todolist')) || [];
-// $(".description").each(function(){
-//     for ( var i = 0; i < 16; i ++){
-//     $(this).attr ("id", i);
-//     //debugger;
-//     var getText = $(this).val();
-//      $(".saveBtn").addListener("click", function(event){
-//         event.preventDevault ();
-//         list.push (getText);
-//     });
-    
-//     //debugger;
-// }
-// });
-
-// $(".saveBtn").each(function(){
-   
-//     for (var i=9; i<17 i++ ){
-
-// }
-// });
 
 
 

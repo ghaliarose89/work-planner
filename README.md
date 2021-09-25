@@ -18,7 +18,7 @@ This application allows to:
 save buttons are located on the left side of each work hours 
 as  following snips:
 
-![ScreenShot](./assets/pictures/Capture.JPG)
+![ScreenShot](./assets/pictures/Capture1.JPG)
 
 
 ## Website
